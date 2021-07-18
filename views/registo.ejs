@@ -1,53 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-    <title>Social App - Registo</title>
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
-    <link rel="stylesheet" href="/css/loader.css" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready( () => {
+<script>
+  $(document).ready(() => {
     $(this).scrollTop(0);
-});
-        $(window).on("load", () => {
- $(".loader-wrapper").fadeOut('slow');
+  });
+  $(window).on("load", () => {
+    $(".loader-wrapper").fadeOut('slow');
   });
 </script>
-  </head>
-  <body>
-    <div class="loader-wrapper" style="z-index: 500;">
-        <span class="loader"><span class="loader-inner"></span></span>
-    </div>
-    <div id="card-registo" class="card-registo">
-      <div class="head-registo">
-              <h2 id="h-head-registo">Sign Up</h2>
-      </div>
+<div class="loader-wrapper" style="z-index: 500;">
+  <span class="loader"><span class="loader-inner"></span></span>
+</div>
+<div id="card-registo" class="card-registo">
+  <div class="head-registo">
+    <h2 id="h-head-registo">Sign Up</h2>
+  </div>
 
-        <div class="in-registo">
-          <% if (alerts.error) { %>
-            <% alerts.error.forEach( (msg) => { %>
-              <div class="alert alert-danger"><%= msg %></div>
-            <% }); %>
-          <% } %>
-          <% if (alerts.success) { %>
-            <% alerts.success.forEach( (msg) => { %>
-              <div class="alert alert-success"><%= msg %></div>
-            <% }); %>
-          <% } %>
-          <form action="/signup" method="POST">
-                <input class="input-login" type="text" name="name" placeholder="Nome" required>
-                <input class="input-login" type="password" name="password" placeholder="Password" required>
-                <input class="input-login" type="password" name="checkPassword" placeholder="Confirmar Password">
-                <hr>
-                <button class="btn-login" type="submit">Registar</button>
-              </form>
-                <br>
-                <div>
-                <span>Já está registado? <a href="/signin">Login</a></span>
-              </div>
+  <div class="in-registo">
+    <% if (alerts.error) { %>
+      <% alerts.error.forEach( (msg)=> { %>
+        <div class="alert alert-danger">
+          <%= msg %>
         </div>
-    </div>
-  </body>
-</html>
+        <% }); %>
+          <% } %>
+            <% if (alerts.success) { %>
+              <% alerts.success.forEach( (msg)=> { %>
+                <div class="alert alert-success">
+                  <%= msg %>
+                </div>
+                <% }); %>
+                  <% } %>
+                    <form action="/signup" method="POST">
+                      <input class="input-login" type="text" name="name" placeholder="Nome" required>
+                      <input class="input-login" type="password" name="password" placeholder="Password" required>
+                      <input class="input-login" type="password" name="checkPassword" placeholder="Confirmar Password">
+                      <hr>
+                      <button class="btn-login" type="submit">Registar</button>
+                    </form>
+                    <br>
+                    <div>
+                      <span>Já está registado? <a href="/signin">Login</a></span>
+                    </div>
+  </div>
+</div>

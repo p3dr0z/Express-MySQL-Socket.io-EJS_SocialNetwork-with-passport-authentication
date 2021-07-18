@@ -6,26 +6,29 @@ const port = process.env.PORT || 3000
 const host = process.env.HOST || '127.0.0.1'
 
 const cors = require('cors')
-app.use(cors())
-
-const http = require('http')
-const server = http.createServer(app)
-const socket = require('socket.io')
-const io = socket(server)
-
-require('dotenv').config()
-
 const path = require('path')
 const session = require('express-session')
 const flash = require('connect-flash')
 const passport = require('passport')
 const methodOverride = require('method-override')
 const bodyParser = require('body-parser')
-app.set('view-engine', 'ejs');
+const expressLayout = require('express-ejs-layouts')
 
-app.use(express.static(path.join(__dirname + '/public')));
+const http = require('http')
+const server = http.createServer(app)
+const socket = require('socket.io')
+const io = socket(server)
+
+app.use(cors())
+
 
 app.use(bodyParser.json(), bodyParser.urlencoded({extended: true}));
+
+app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views')
+app.set('layout', 'layouts/layout')
+app.use(expressLayout)
+app.use(express.static(path.join(__dirname + '/public')))
 
 app.use(session({
     secret: process.env.SECRET,

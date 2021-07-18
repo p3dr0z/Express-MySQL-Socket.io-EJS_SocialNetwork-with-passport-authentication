@@ -1,52 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-    <title>Social App - Login</title>
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
-    <link rel="stylesheet" href="/css/loader.css" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-      $(window).on("load", () => {
-$(".loader-wrapper").fadeOut('slow')
-});
+<script>
+  $(window).on("load", () => {
+    $(".loader-wrapper").fadeOut('slow')
+  });
 </script>
-  </head>
-  <body>
-    <div class="loader-wrapper" style="z-index: 500;">
-      <span class="loader"><span class="loader-inner"></span></span>
+<div class="loader-wrapper" style="z-index: 500;">
+  <span class="loader"><span class="loader-inner"></span></span>
+</div>
+<div class="card-login">
+  <div class="head-login">
+    <h2 id="h-head-login">Sign In</h2>
   </div>
-    <div class="card-login">
-      <div class="head-login">
-              <h2 id="h-head-login">Sign In</h2>
-      </div>
-      <br>
-        <div class="in-login">
-          <% if (alerts.error) { %>
-            <% alerts.error.forEach( (msg) => { %>
-              <div class="alert alert-danger"><%= msg %></div>
-            <% }); %>
-          <% } %>
-          <% if (alerts.success) { %>
-            <% alerts.success.forEach( (msg) => { %>
-              <div class="alert alert-success"><%= msg %></div>
-            <% }); %>
-          <% } %>
-          <form action="/signin" method="POST">
-                <input class="input-login" id="nickname" type="text" name="nickname" placeholder="Nickname">
-                <input class="input-login" id="password" type="password" name="password" placeholder="Password">
-                <div id="below-input">
-                  <a href="#">Don´t rembember password?</a>
-              </div>
-                <hr>
-                <button class="btn-login" type="submit">Entrar</button>
-              </form>
-                <br>
-                <div>
-                <span>Não tem conta? <a href="/signup">Registo</a></span>
-              </div>
+  <br>
+  <div class="in-login">
+    <% if (alerts.error) { %>
+      <% alerts.error.forEach( (msg)=> { %>
+        <div class="alert alert-danger">
+          <%= msg %>
         </div>
-    </div>
-  </body>
-</html>
+        <% }); %>
+          <% } %>
+            <% if (alerts.success) { %>
+              <% alerts.success.forEach( (msg)=> { %>
+                <div class="alert alert-success">
+                  <%= msg %>
+                </div>
+                <% }); %>
+                  <% } %>
+                    <form action="/signin" method="POST">
+                      <input class="input-login" id="nickname" type="text" name="nickname" placeholder="Nickname">
+                      <input class="input-login" id="password" type="password" name="password" placeholder="Password">
+                      <div id="below-input">
+                        <a href="#">Don´t rembember password?</a>
+                      </div>
+                      <hr>
+                      <button class="btn-login" type="submit">Entrar</button>
+                    </form>
+                    <br>
+                    <div>
+                      <span>Não tem conta? <a href="/signup">Registo</a></span>
+                    </div>
+  </div>
+</div>
